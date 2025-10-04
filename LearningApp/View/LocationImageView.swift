@@ -18,5 +18,5 @@ struct LocationImageView: View {
 }
 
 #Preview {
-    LocationImageView(locationImage: landmarks[0].image)
+    LocationImageView(locationImage: ModelData().landmarks[0].image)
 }

@@ -25,6 +25,7 @@ struct ContentView: View {
         LearningView(title: "Buttons", viewType: .basicLearningView),
         LearningView(title: "Image with Map", viewType: .mapOfPlacesView)
     ]
+    @State private var modelData = ModelData()
     var body: some View {
         NavigationView {
             VStack {
@@ -34,7 +35,7 @@ struct ContentView: View {
                         case .basicLearningView:
                             BasicLearningView()
                         case .mapOfPlacesView:
-                            LandmarkListView()
+                            LandmarkListView().environment(modelData)
                         }
                     }) {
                         Text(learningView.title)

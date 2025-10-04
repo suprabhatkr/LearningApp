@@ -33,6 +33,7 @@
 		F40262FC2E90F78D0000838F /* LandmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40262FB2E90F78D0000838F /* LandmarkRow.swift */; };
 		F40262FD2E90F78D0000838F /* LandmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40262FB2E90F78D0000838F /* LandmarkRow.swift */; };
 		F40262FF2E90FAC10000838F /* LandmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40262FE2E90FAC10000838F /* LandmarkListView.swift */; };
+		F40263012E917DF70000838F /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40263002E917DF70000838F /* FavoriteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		F40262E02E90F66E0000838F /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		F40262FB2E90F78D0000838F /* LandmarkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRow.swift; sourceTree = "<group>"; };
 		F40262FE2E90FAC10000838F /* LandmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListView.swift; sourceTree = "<group>"; };
+		F40263002E917DF70000838F /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -194,6 +196,7 @@
 			children = (
 				F40262D82E90F66E0000838F /* BasicLearningView.swift */,
 				F40262D92E90F66E0000838F /* ContentView.swift */,
+				F40263002E917DF70000838F /* FavoriteView.swift */,
 				F40262DC2E90F66E0000838F /* LocationImageView.swift */,
 				F40262DD2E90F66E0000838F /* MapOfPlacesView.swift */,
 				F40262DE2E90F66E0000838F /* MapView.swift */,
@@ -372,6 +375,7 @@
 				F40262E32E90F66E0000838F /* ContentView.swift in Sources */,
 				F40262E42E90F66E0000838F /* Landmark.swift in Sources */,
 				F40262FF2E90FAC10000838F /* LandmarkListView.swift in Sources */,
+				F40263012E917DF70000838F /* FavoriteView.swift in Sources */,
 				F40262E52E90F66E0000838F /* LearningAppApp.swift in Sources */,
 				F40262E62E90F66E0000838F /* LocationImageView.swift in Sources */,
 				F40262E72E90F66E0000838F /* MapOfPlacesView.swift in Sources */,
