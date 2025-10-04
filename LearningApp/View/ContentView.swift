@@ -34,7 +34,7 @@ struct ContentView: View {
                         case .basicLearningView:
                             BasicLearningView()
                         case .mapOfPlacesView:
-                            MapOfPlacesView()
+                            LandmarkListView()
                         }
                     }) {
                         Text(learningView.title)

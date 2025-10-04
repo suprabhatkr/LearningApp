@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LocationImageView: View {
+    let locationImage: Image
     var body: some View {
-        Image("IndiaGate").resizable().clipShape(Circle()).overlay {
+        locationImage.resizable().clipShape(Circle()).overlay {
             Circle().stroke(.white, lineWidth: 5)
                 .shadow(radius: 7)
         }
@@ -17,5 +18,5 @@ struct LocationImageView: View {
 }
 
 #Preview {
-    LocationImageView()
+    LocationImageView(locationImage: landmarks[0].image)
 }
