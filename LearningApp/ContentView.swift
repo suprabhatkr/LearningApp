@@ -7,56 +7,40 @@
 
 import SwiftUI
 
-struct Song: Identifiable {
-    var id = UUID()
-    var title: String
-    var artist: String
+enum LearningViewType: Hashable {
+    case basicLearningView
+    case mapOfPlacesView
 }
 
-struct SongDetailView: View {
-    var song: Song
-    var body: some View {
-        VStack {
-            Text(song.title)
-            Text(song.artist)
-        }
-    }
+struct LearningView: Identifiable {
+    let id = UUID()
+    var title: String
+    var viewType: LearningViewType
 }
 
 struct ContentView: View {
-    @State var counter = 0
-    @State var name = ""
-    @State var email = ""
-    var songs = [
-        Song(title: "Photograph", artist: "Ed Sheeren"),
-        Song(title: "Baby", artist: "Just Beiber"),
-        Song(title: "Despacito", artist: "Louis Fonci"),
-        Song(title: "Hips Don't lie", artist: "Shakira")
+    var learningViews = [
+        LearningView(title: "List", viewType: .basicLearningView),
+        LearningView(title: "User Input", viewType: .basicLearningView),
+        LearningView(title: "Buttons", viewType: .basicLearningView),
+        LearningView(title: "Image with Map", viewType: .mapOfPlacesView)
     ]
     var body: some View {
-        VStack(spacing: 20) {
-            Text("You have tapped on the button \(counter) times")
-            Button("Tap Me") {
-                self.counter += 1
-            }
-            Button("Reset") {
-                self.counter = 0
-            }
-        }
-        .padding()
         NavigationView {
-            List(songs) {
-                song in VStack {
-                    NavigationLink(destination: SongDetailView(song: song)) {
-                        Text(song.title).font(.title)
+            VStack {
+                List(learningViews) {
+                    learningView in NavigationLink(destination: {
+                        switch learningView.viewType {
+                        case .basicLearningView:
+                            BasicLearningView()
+                        case .mapOfPlacesView:
+                            MapOfPlacesView()
+                        }
+                    }) {
+                        Text(learningView.title)
                     }
                 }
             }
-        }
-        VStack(spacing: 20) {
-            TextField("Enter your Name : ", text: $name).border(.blue)
-            TextField("Enter your Email : ", text: $email).border(.blue)
-            Text("The email address of \(name) is \(email)")
         }
     }
 }
