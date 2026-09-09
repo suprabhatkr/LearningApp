@@ -1,0 +1,902 @@
+const LEETCODE_FALLBACK_QUESTIONS = [
+  {
+    "id": "1",
+    "name": "Two Sum",
+    "pattern": "Hash Table",
+    "difficulty": "Easy",
+    "companies": "Meta, Google, Amazon, Uber, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/two-sum/",
+    "solved": true
+  },
+  {
+    "id": "2",
+    "name": "Best Time to Buy and Sell Stock",
+    "pattern": "Array / DP",
+    "difficulty": "Easy",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "solved": true
+  },
+  {
+    "id": "3",
+    "name": "Contains Duplicate",
+    "pattern": "Hash Set",
+    "difficulty": "Easy",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/contains-duplicate/",
+    "solved": true
+  },
+  {
+    "id": "4",
+    "name": "Valid Anagram",
+    "pattern": "Hash Table / Sorting",
+    "difficulty": "Easy",
+    "companies": "Meta, Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/valid-anagram/",
+    "solved": true
+  },
+  {
+    "id": "5",
+    "name": "Valid Parentheses",
+    "pattern": "Stack",
+    "difficulty": "Easy",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/valid-parentheses/",
+    "solved": true
+  },
+  {
+    "id": "6",
+    "name": "Merge Two Sorted Lists",
+    "pattern": "Two Pointers / Linked List",
+    "difficulty": "Easy",
+    "companies": "Meta, Google, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "solved": true
+  },
+  {
+    "id": "7",
+    "name": "Invert Binary Tree",
+    "pattern": "Tree Traversal (DFS/BFS)",
+    "difficulty": "Easy",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/invert-binary-tree/",
+    "solved": true
+  },
+  {
+    "id": "8",
+    "name": "Maximum Depth of Binary Tree",
+    "pattern": "Tree Traversal (DFS)",
+    "difficulty": "Easy",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+    "solved": true
+  },
+  {
+    "id": "9",
+    "name": "Reverse Linked List",
+    "pattern": "Linked List Manipulation",
+    "difficulty": "Easy",
+    "companies": "Meta, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/reverse-linked-list/",
+    "solved": true
+  },
+  {
+    "id": "10",
+    "name": "Climbing Stairs",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Easy",
+    "companies": "Google, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/climbing-stairs/",
+    "solved": true
+  },
+  {
+    "id": "11",
+    "name": "Longest Substring Without Repeating Characters",
+    "pattern": "Sliding Window",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "solved": true
+  },
+  {
+    "id": "12",
+    "name": "Longest Repeating Character Replacement",
+    "pattern": "Sliding Window",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+    "solved": true
+  },
+  {
+    "id": "13",
+    "name": "Minimum Window Substring",
+    "pattern": "Sliding Window / Two Pointers",
+    "difficulty": "Hard",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/minimum-window-substring/",
+    "solved": true
+  },
+  {
+    "id": "14",
+    "name": "Product of Array Except Self",
+    "pattern": "Array / Prefix Sum",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/product-of-array-except-self/",
+    "solved": true
+  },
+  {
+    "id": "15",
+    "name": "Maximum Subarray",
+    "pattern": "Dynamic Programming (Kadane's)",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/maximum-subarray/",
+    "solved": true
+  },
+  {
+    "id": "16",
+    "name": "3Sum",
+    "pattern": "Two Pointers",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/3sum/",
+    "solved": true
+  },
+  {
+    "id": "17",
+    "name": "Merge Intervals",
+    "pattern": "Intervals / Sorting",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/merge-intervals/",
+    "solved": true
+  },
+  {
+    "id": "18",
+    "name": "Group Anagrams",
+    "pattern": "Hash Table / String",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/group-anagrams/",
+    "solved": true
+  },
+  {
+    "id": "19",
+    "name": "Number of Islands",
+    "pattern": "Graph Traversal (DFS/BFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Uber, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/number-of-islands/",
+    "solved": true
+  },
+  {
+    "id": "20",
+    "name": "Clone Graph",
+    "pattern": "Graph Traversal (DFS/BFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/clone-graph/",
+    "solved": true
+  },
+  {
+    "id": "21",
+    "name": "Container With Most Water",
+    "pattern": "Two Pointers",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/container-with-most-water/",
+    "solved": true
+  },
+  {
+    "id": "22",
+    "name": "Search in Rotated Sorted Array",
+    "pattern": "Binary Search",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "solved": true
+  },
+  {
+    "id": "23",
+    "name": "Combination Sum",
+    "pattern": "Backtracking",
+    "difficulty": "Medium",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/combination-sum/",
+    "solved": true
+  },
+  {
+    "id": "24",
+    "name": "Palindromic Substrings",
+    "pattern": "Dynamic Programming / Expand Around Center",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/palindromic-substrings/",
+    "solved": true
+  },
+  {
+    "id": "25",
+    "name": "Validate Binary Search Tree",
+    "pattern": "Tree Traversal (DFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/validate-binary-search-tree/",
+    "solved": true
+  },
+  {
+    "id": "26",
+    "name": "Binary Tree Level Order Traversal",
+    "pattern": "Tree Traversal (BFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "solved": true
+  },
+  {
+    "id": "27",
+    "name": "Lowest Common Ancestor of a Binary Tree",
+    "pattern": "Tree Traversal (DFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+    "solved": false
+  },
+  {
+    "id": "28",
+    "name": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "pattern": "Tree Traversal / Recursion",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+    "solved": false
+  },
+  {
+    "id": "29",
+    "name": "Implement Trie (Prefix Tree)",
+    "pattern": "Trie / Design",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+    "solved": false
+  },
+  {
+    "id": "30",
+    "name": "Course Schedule",
+    "pattern": "Graph / Topological Sort",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/course-schedule/",
+    "solved": false
+  },
+  {
+    "id": "31",
+    "name": "Coin Change",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/coin-change/",
+    "solved": false
+  },
+  {
+    "id": "32",
+    "name": "Word Break",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/word-break/",
+    "solved": false
+  },
+  {
+    "id": "33",
+    "name": "Longest Increasing Subsequence",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+    "solved": false
+  },
+  {
+    "id": "34",
+    "name": "House Robber",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/house-robber/",
+    "solved": false
+  },
+  {
+    "id": "35",
+    "name": "Unique Paths",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/unique-paths/",
+    "solved": false
+  },
+  {
+    "id": "36",
+    "name": "Top K Frequent Elements",
+    "pattern": "Heap / Quickselect",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/top-k-frequent-elements/",
+    "solved": false
+  },
+  {
+    "id": "37",
+    "name": "Kth Smallest Element in a BST",
+    "pattern": "Tree Traversal (In-order)",
+    "difficulty": "Medium",
+    "companies": "Meta, Uber",
+    "leetcode_url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+    "solved": false
+  },
+  {
+    "id": "38",
+    "name": "Remove Nth Node From End of List",
+    "pattern": "Two Pointers / Linked List",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+    "solved": false
+  },
+  {
+    "id": "39",
+    "name": "Longest Consecutive Sequence",
+    "pattern": "Hash Set / Array",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+    "solved": false
+  },
+  {
+    "id": "40",
+    "name": "Reorder List",
+    "pattern": "Linked List Manipulation",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/reorder-list/",
+    "solved": false
+  },
+  {
+    "id": "41",
+    "name": "LRU Cache",
+    "pattern": "Design / Hash Map + DLL",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Uber, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/lru-cache/",
+    "solved": false
+  },
+  {
+    "id": "42",
+    "name": "Word Search",
+    "pattern": "Backtracking / Matrix Traversal",
+    "difficulty": "Medium",
+    "companies": "Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/word-search/",
+    "solved": false
+  },
+  {
+    "id": "43",
+    "name": "Rotate Image",
+    "pattern": "Matrix Manipulation",
+    "difficulty": "Medium",
+    "companies": "Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/rotate-image/",
+    "solved": false
+  },
+  {
+    "id": "44",
+    "name": "Spiral Matrix",
+    "pattern": "Matrix Traversal",
+    "difficulty": "Medium",
+    "companies": "Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/spiral-matrix/",
+    "solved": false
+  },
+  {
+    "id": "45",
+    "name": "Set Matrix Zeroes",
+    "pattern": "Matrix / Array",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/set-matrix-zeroes/",
+    "solved": false
+  },
+  {
+    "id": "46",
+    "name": "Subarray Sum Equals K",
+    "pattern": "Hash Map / Prefix Sum",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+    "solved": false
+  },
+  {
+    "id": "47",
+    "name": "Decode Ways",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/decode-ways/",
+    "solved": false
+  },
+  {
+    "id": "48",
+    "name": "Find Minimum in Rotated Sorted Array",
+    "pattern": "Binary Search",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "solved": false
+  },
+  {
+    "id": "49",
+    "name": "Add Two Numbers",
+    "pattern": "Linked List / Math",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/add-two-numbers/",
+    "solved": false
+  },
+  {
+    "id": "50",
+    "name": "Copy List with Random Pointer",
+    "pattern": "Hash Map / Linked List",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+    "solved": false
+  },
+  {
+    "id": "51",
+    "name": "Pacific Atlantic Water Flow",
+    "pattern": "Graph Traversal (DFS/BFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+    "solved": false
+  },
+  {
+    "id": "52",
+    "name": "Non-overlapping Intervals",
+    "pattern": "Intervals / Greedy",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/non-overlapping-intervals/",
+    "solved": false
+  },
+  {
+    "id": "53",
+    "name": "K Closest Points to Origin",
+    "pattern": "Heap / Sorting",
+    "difficulty": "Medium",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/k-closest-points-to-origin/",
+    "solved": false
+  },
+  {
+    "id": "54",
+    "name": "Task Scheduler",
+    "pattern": "Heap / Greedy",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/task-scheduler/",
+    "solved": false
+  },
+  {
+    "id": "55",
+    "name": "Daily Temperatures",
+    "pattern": "Monotonic Stack",
+    "difficulty": "Medium",
+    "companies": "Google, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/daily-temperatures/",
+    "solved": false
+  },
+  {
+    "id": "56",
+    "name": "Meeting Rooms II",
+    "pattern": "Heap / Intervals",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/meeting-rooms-ii/",
+    "solved": false
+  },
+  {
+    "id": "57",
+    "name": "Number of Connected Components in an Undirected Graph",
+    "pattern": "Graph Traversal / Union-Find",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/",
+    "solved": false
+  },
+  {
+    "id": "58",
+    "name": "Graph Valid Tree",
+    "pattern": "Graph Traversal / Union-Find",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/graph-valid-tree/",
+    "solved": false
+  },
+  {
+    "id": "59",
+    "name": "Alien Dictionary",
+    "pattern": "Graph / Topological Sort",
+    "difficulty": "Hard",
+    "companies": "Meta, Uber",
+    "leetcode_url": "https://leetcode.com/problems/alien-dictionary/",
+    "solved": false
+  },
+  {
+    "id": "60",
+    "name": "Merge k Sorted Lists",
+    "pattern": "Heap / Priority Queue",
+    "difficulty": "Hard",
+    "companies": "Meta, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+    "solved": false
+  },
+  {
+    "id": "61",
+    "name": "Find Median from Data Stream",
+    "pattern": "Two Heaps",
+    "difficulty": "Hard",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "solved": false
+  },
+  {
+    "id": "62",
+    "name": "Trapping Rain Water",
+    "pattern": "Two Pointers / Stack / DP",
+    "difficulty": "Hard",
+    "companies": "Google, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/trapping-rain-water/",
+    "solved": false
+  },
+  {
+    "id": "63",
+    "name": "Binary Tree Maximum Path Sum",
+    "pattern": "Tree Traversal (DFS)",
+    "difficulty": "Hard",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+    "solved": false
+  },
+  {
+    "id": "64",
+    "name": "Serialize and Deserialize Binary Tree",
+    "pattern": "Tree Traversal / Design",
+    "difficulty": "Hard",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+    "solved": false
+  },
+  {
+    "id": "65",
+    "name": "Word Search II",
+    "pattern": "Trie / Backtracking",
+    "difficulty": "Hard",
+    "companies": "Meta, Uber",
+    "leetcode_url": "https://leetcode.com/problems/word-search-ii/",
+    "solved": false
+  },
+  {
+    "id": "66",
+    "name": "Regular Expression Matching",
+    "pattern": "Dynamic Programming",
+    "difficulty": "Hard",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/regular-expression-matching/",
+    "solved": false
+  },
+  {
+    "id": "67",
+    "name": "Longest Valid Parentheses",
+    "pattern": "Stack / Dynamic Programming",
+    "difficulty": "Hard",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/longest-valid-parentheses/",
+    "solved": false
+  },
+  {
+    "id": "68",
+    "name": "Basic Calculator",
+    "pattern": "Stack / Recursion",
+    "difficulty": "Hard",
+    "companies": "Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/basic-calculator/",
+    "solved": false
+  },
+  {
+    "id": "69",
+    "name": "Sliding Window Maximum",
+    "pattern": "Monotonic Deque",
+    "difficulty": "Hard",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/sliding-window-maximum/",
+    "solved": false
+  },
+  {
+    "id": "70",
+    "name": "Bus Routes",
+    "pattern": "Graph Traversal (BFS)",
+    "difficulty": "Hard",
+    "companies": "Uber",
+    "leetcode_url": "https://leetcode.com/problems/bus-routes/",
+    "solved": false
+  },
+  {
+    "id": "71",
+    "name": "Largest Rectangle in Histogram",
+    "pattern": "Monotonic Stack",
+    "difficulty": "Hard",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "solved": false
+  },
+  {
+    "id": "72",
+    "name": "Word Ladder",
+    "pattern": "Graph Traversal (BFS)",
+    "difficulty": "Hard",
+    "companies": "Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/word-ladder/",
+    "solved": false
+  },
+  {
+    "id": "73",
+    "name": "Median of Two Sorted Arrays",
+    "pattern": "Binary Search",
+    "difficulty": "Hard",
+    "companies": "Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "solved": false
+  },
+  {
+    "id": "74",
+    "name": "Reverse Nodes in k-Group",
+    "pattern": "Linked List / Recursion",
+    "difficulty": "Hard",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+    "solved": false
+  },
+  {
+    "id": "75",
+    "name": "LFU Cache",
+    "pattern": "Design / Hash Map + DLL",
+    "difficulty": "Hard",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/lfu-cache/",
+    "solved": false
+  },
+  {
+    "id": "76",
+    "name": "Valid Sudoku",
+    "pattern": "Hash Set / Array",
+    "difficulty": "Medium",
+    "companies": "Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/valid-sudoku/",
+    "solved": false
+  },
+  {
+    "id": "77",
+    "name": "String to Integer (atoi)",
+    "pattern": "String Manipulation",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/string-to-integer-atoi/",
+    "solved": false
+  },
+  {
+    "id": "78",
+    "name": "Flatten Binary Tree to Linked List",
+    "pattern": "Tree Traversal (DFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+    "solved": false
+  },
+  {
+    "id": "79",
+    "name": "Permutations",
+    "pattern": "Backtracking",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/permutations/",
+    "solved": false
+  },
+  {
+    "id": "80",
+    "name": "Jump Game",
+    "pattern": "Greedy / DP",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/jump-game/",
+    "solved": false
+  },
+  {
+    "id": "81",
+    "name": "Find the Duplicate Number",
+    "pattern": "Two Pointers (Floyd's Cycle) / Binary Search",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/find-the-duplicate-number/",
+    "solved": false
+  },
+  {
+    "id": "82",
+    "name": "Kth Largest Element in an Array",
+    "pattern": "Heap / Quickselect",
+    "difficulty": "Medium",
+    "companies": "Amazon, Uber, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "solved": false
+  },
+  {
+    "id": "83",
+    "name": "Binary Tree Right Side View",
+    "pattern": "Tree Traversal (BFS)",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Nvidia",
+    "leetcode_url": "https://leetcode.com/problems/binary-tree-right-side-view/",
+    "solved": false
+  },
+  {
+    "id": "84",
+    "name": "Add and Search Word - Data structure design",
+    "pattern": "Trie / Design",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/add-and-search-word---data-structure-design/",
+    "solved": false
+  },
+  {
+    "id": "85",
+    "name": "Insert Interval",
+    "pattern": "Intervals / Array",
+    "difficulty": "Medium",
+    "companies": "Meta, Uber",
+    "leetcode_url": "https://leetcode.com/problems/insert-interval/",
+    "solved": false
+  },
+  {
+    "id": "86",
+    "name": "Longest Palindromic Substring",
+    "pattern": "Dynamic Programming / Expand Around Center",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon, Uber",
+    "leetcode_url": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "solved": false
+  },
+  {
+    "id": "87",
+    "name": "Accounts Merge",
+    "pattern": "Graph Traversal / Union-Find",
+    "difficulty": "Medium",
+    "companies": "Meta, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/accounts-merge/",
+    "solved": false
+  },
+  {
+    "id": "88",
+    "name": "Next Permutation",
+    "pattern": "Array Manipulation",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/next-permutation/",
+    "solved": false
+  },
+  {
+    "id": "89",
+    "name": "Evaluate Division",
+    "pattern": "Graph Traversal (DFS/BFS)",
+    "difficulty": "Medium",
+    "companies": "Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/evaluate-division/",
+    "solved": false
+  },
+  {
+    "id": "90",
+    "name": "Sort Colors",
+    "pattern": "Two Pointers",
+    "difficulty": "Medium",
+    "companies": "Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/sort-colors/",
+    "solved": false
+  },
+  {
+    "id": "91",
+    "name": "Subsets",
+    "pattern": "Backtracking",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/subsets/",
+    "solved": false
+  },
+  {
+    "id": "92",
+    "name": "Letter Combinations of a Phone Number",
+    "pattern": "Backtracking",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+    "solved": false
+  },
+  {
+    "id": "93",
+    "name": "Find First and Last Position of Element in Sorted Array",
+    "pattern": "Binary Search",
+    "difficulty": "Medium",
+    "companies": "Meta, Google, Amazon",
+    "leetcode_url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+    "solved": false
+  },
+  {
+    "id": "94",
+    "name": "Encode and Decode Strings",
+    "pattern": "String / Design",
+    "difficulty": "Medium",
+    "companies": "Meta, Google",
+    "leetcode_url": "https://leetcode.com/problems/encode-and-decode-strings/",
+    "solved": false
+  },
+  {
+    "id": "95",
+    "name": "Rotting Oranges",
+    "pattern": "Graph Traversal (BFS)",
+    "difficulty": "Medium",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/rotting-oranges/",
+    "solved": false
+  },
+  {
+    "id": "96",
+    "name": "Time Based Key-Value Store",
+    "pattern": "Hash Map / Binary Search",
+    "difficulty": "Medium",
+    "companies": "Google, Uber",
+    "leetcode_url": "https://leetcode.com/problems/time-based-key-value-store/",
+    "solved": false
+  },
+  {
+    "id": "97",
+    "name": "Car Fleet",
+    "pattern": "Stack",
+    "difficulty": "Medium",
+    "companies": "Google",
+    "leetcode_url": "https://leetcode.com/problems/car-fleet/",
+    "solved": false
+  },
+  {
+    "id": "98",
+    "name": "Design Hit Counter",
+    "pattern": "Design / Queue",
+    "difficulty": "Medium",
+    "companies": "Uber",
+    "leetcode_url": "https://leetcode.com/problems/design-hit-counter/",
+    "solved": false
+  },
+  {
+    "id": "99",
+    "name": "Minimum Knight Moves",
+    "pattern": "Graph Traversal (BFS)",
+    "difficulty": "Medium",
+    "companies": "Google",
+    "leetcode_url": "https://leetcode.com/problems/minimum-knight-moves/",
+    "solved": false
+  },
+  {
+    "id": "100",
+    "name": "Reorganize String",
+    "pattern": "Heap / Greedy",
+    "difficulty": "Medium",
+    "companies": "Amazon, Google",
+    "leetcode_url": "https://leetcode.com/problems/reorganize-string/",
+    "solved": false
+  }
+];

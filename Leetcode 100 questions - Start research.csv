@@ -1,0 +1,101 @@
+#,Problem Name,Core Pattern,Difficulty,High-Relevance Companies,Solved
+1,Two Sum,Hash Table,Easy,"Meta, Google, Amazon, Uber, Nvidia",Solved
+2,Best Time to Buy and Sell Stock,Array / DP,Easy,"Meta, Amazon, Google",Solved
+3,Contains Duplicate,Hash Set,Easy,"Meta, Google, Amazon",Solved
+4,Valid Anagram,Hash Table / Sorting,Easy,"Meta, Google, Uber",Solved
+5,Valid Parentheses,Stack,Easy,"Meta, Amazon, Google",Solved
+6,Merge Two Sorted Lists,Two Pointers / Linked List,Easy,"Meta, Google, Amazon, Nvidia",Solved
+7,Invert Binary Tree,Tree Traversal (DFS/BFS),Easy,"Meta, Google, Amazon",Solved
+8,Maximum Depth of Binary Tree,Tree Traversal (DFS),Easy,"Amazon, Google",Solved
+9,Reverse Linked List,Linked List Manipulation,Easy,"Meta, Amazon, Nvidia",Solved
+10,Climbing Stairs,Dynamic Programming,Easy,"Google, Amazon, Nvidia",Solved
+11,Longest Substring Without Repeating Characters,Sliding Window,Medium,"Meta, Google, Amazon, Uber",Solved
+12,Longest Repeating Character Replacement,Sliding Window,Medium,"Meta, Google, Uber",Solved
+13,Minimum Window Substring,Sliding Window / Two Pointers,Hard,"Meta, Amazon, Uber",Solved
+14,Product of Array Except Self,Array / Prefix Sum,Medium,"Meta, Amazon, Uber",Solved
+15,Maximum Subarray,Dynamic Programming (Kadane's),Medium,"Meta, Google, Amazon, Nvidia",Solved
+16,3Sum,Two Pointers,Medium,"Meta, Google, Amazon",Solved
+17,Merge Intervals,Intervals / Sorting,Medium,"Meta, Google, Amazon, Uber",Solved
+18,Group Anagrams,Hash Table / String,Medium,"Meta, Amazon, Uber",Solved
+19,Number of Islands,Graph Traversal (DFS/BFS),Medium,"Meta, Google, Amazon, Uber, Nvidia",Solved
+20,Clone Graph,Graph Traversal (DFS/BFS),Medium,"Meta, Amazon, Uber",Solved
+21,Container With Most Water,Two Pointers,Medium,"Meta, Google, Amazon, Uber",Solved
+22,Search in Rotated Sorted Array,Binary Search,Medium,"Meta, Google, Amazon, Nvidia",Solved
+23,Combination Sum,Backtracking,Medium,"Amazon, Google",Solved
+24,Palindromic Substrings,Dynamic Programming / Expand Around Center,Medium,"Meta, Amazon",Solved
+25,Validate Binary Search Tree,Tree Traversal (DFS),Medium,"Meta, Amazon, Google",Solved
+26,Binary Tree Level Order Traversal,Tree Traversal (BFS),Medium,"Meta, Amazon, Google",Solved
+27,Lowest Common Ancestor of a Binary Tree,Tree Traversal (DFS),Medium,"Meta, Google, Amazon",Not solved
+28,Construct Binary Tree from Preorder and Inorder Traversal,Tree Traversal / Recursion,Medium,"Meta, Amazon, Google",Not solved
+29,Implement Trie (Prefix Tree),Trie / Design,Medium,"Meta, Google, Amazon",Not solved
+30,Course Schedule,Graph / Topological Sort,Medium,"Meta, Google, Amazon, Uber",Not solved
+31,Coin Change,Dynamic Programming,Medium,"Meta, Amazon, Google, Uber",Not solved
+32,Word Break,Dynamic Programming,Medium,"Meta, Amazon, Uber",Not solved
+33,Longest Increasing Subsequence,Dynamic Programming,Medium,"Meta, Google",Not solved
+34,House Robber,Dynamic Programming,Medium,"Meta, Amazon, Google",Not solved
+35,Unique Paths,Dynamic Programming,Medium,"Meta, Google, Nvidia",Not solved
+36,Top K Frequent Elements,Heap / Quickselect,Medium,"Meta, Amazon, Uber",Not solved
+37,Kth Smallest Element in a BST,Tree Traversal (In-order),Medium,"Meta, Uber",Not solved
+38,Remove Nth Node From End of List,Two Pointers / Linked List,Medium,"Meta, Amazon, Google",Not solved
+39,Longest Consecutive Sequence,Hash Set / Array,Medium,"Meta, Google, Amazon",Not solved
+40,Reorder List,Linked List Manipulation,Medium,"Meta, Amazon",Not solved
+41,LRU Cache,Design / Hash Map + DLL,Medium,"Meta, Google, Amazon, Uber, Nvidia",Not solved
+42,Word Search,Backtracking / Matrix Traversal,Medium,"Amazon, Uber",Not solved
+43,Rotate Image,Matrix Manipulation,Medium,"Amazon, Nvidia",Not solved
+44,Spiral Matrix,Matrix Traversal,Medium,"Amazon, Uber",Not solved
+45,Set Matrix Zeroes,Matrix / Array,Medium,"Meta, Amazon",Not solved
+46,Subarray Sum Equals K,Hash Map / Prefix Sum,Medium,"Meta, Google, Amazon",Not solved
+47,Decode Ways,Dynamic Programming,Medium,"Meta, Google",Not solved
+48,Find Minimum in Rotated Sorted Array,Binary Search,Medium,"Meta, Google, Uber",Not solved
+49,Add Two Numbers,Linked List / Math,Medium,"Meta, Google, Amazon, Nvidia",Not solved
+50,Copy List with Random Pointer,Hash Map / Linked List,Medium,"Meta, Amazon",Not solved
+51,Pacific Atlantic Water Flow,Graph Traversal (DFS/BFS),Medium,"Meta, Amazon",Not solved
+52,Non-overlapping Intervals,Intervals / Greedy,Medium,"Meta, Google",Not solved
+53,K Closest Points to Origin,Heap / Sorting,Medium,"Amazon, Google",Not solved
+54,Task Scheduler,Heap / Greedy,Medium,"Meta, Amazon",Not solved
+55,Daily Temperatures,Monotonic Stack,Medium,"Google, Nvidia",Not solved
+56,Meeting Rooms II,Heap / Intervals,Medium,"Meta, Amazon, Uber",Not solved
+57,Number of Connected Components in an Undirected Graph,Graph Traversal / Union-Find,Medium,"Meta, Google",Not solved
+58,Graph Valid Tree,Graph Traversal / Union-Find,Medium,"Meta, Google",Not solved
+59,Alien Dictionary,Graph / Topological Sort,Hard,"Meta, Uber",Not solved
+60,Merge k Sorted Lists,Heap / Priority Queue,Hard,"Meta, Amazon, Nvidia",Not solved
+61,Find Median from Data Stream,Two Heaps,Hard,"Meta, Amazon, Uber",Not solved
+62,Trapping Rain Water,Two Pointers / Stack / DP,Hard,"Google, Amazon, Nvidia",Not solved
+63,Binary Tree Maximum Path Sum,Tree Traversal (DFS),Hard,"Meta, Google",Not solved
+64,Serialize and Deserialize Binary Tree,Tree Traversal / Design,Hard,"Meta, Amazon, Uber",Not solved
+65,Word Search II,Trie / Backtracking,Hard,"Meta, Uber",Not solved
+66,Regular Expression Matching,Dynamic Programming,Hard,"Meta, Google",Not solved
+67,Longest Valid Parentheses,Stack / Dynamic Programming,Hard,"Meta, Amazon",Not solved
+68,Basic Calculator,Stack / Recursion,Hard,"Google, Amazon",Not solved
+69,Sliding Window Maximum,Monotonic Deque,Hard,"Amazon, Google",Not solved
+70,Bus Routes,Graph Traversal (BFS),Hard,Uber,Not solved
+71,Largest Rectangle in Histogram,Monotonic Stack,Hard,"Amazon, Google",Not solved
+72,Word Ladder,Graph Traversal (BFS),Hard,"Amazon, Uber",Not solved
+73,Median of Two Sorted Arrays,Binary Search,Hard,"Google, Amazon",Not solved
+74,Reverse Nodes in k-Group,Linked List / Recursion,Hard,"Amazon, Google",Not solved
+75,LFU Cache,Design / Hash Map + DLL,Hard,"Amazon, Google",Not solved
+76,Valid Sudoku,Hash Set / Array,Medium,"Google, Uber",Not solved
+77,String to Integer (atoi),String Manipulation,Medium,"Meta, Amazon, Nvidia",Not solved
+78,Flatten Binary Tree to Linked List,Tree Traversal (DFS),Medium,"Meta, Google, Nvidia",Not solved
+79,Permutations,Backtracking,Medium,"Meta, Google",Not solved
+80,Jump Game,Greedy / DP,Medium,"Meta, Google, Amazon",Not solved
+81,Find the Duplicate Number,Two Pointers (Floyd's Cycle) / Binary Search,Medium,"Meta, Amazon",Not solved
+82,Kth Largest Element in an Array,Heap / Quickselect,Medium,"Amazon, Uber, Nvidia",Not solved
+83,Binary Tree Right Side View,Tree Traversal (BFS),Medium,"Meta, Amazon, Nvidia",Not solved
+84,Add and Search Word - Data structure design,Trie / Design,Medium,"Meta, Google",Not solved
+85,Insert Interval,Intervals / Array,Medium,"Meta, Uber",Not solved
+86,Longest Palindromic Substring,Dynamic Programming / Expand Around Center,Medium,"Meta, Amazon, Uber",Not solved
+87,Accounts Merge,Graph Traversal / Union-Find,Medium,"Meta, Amazon",Not solved
+88,Next Permutation,Array Manipulation,Medium,"Meta, Google",Not solved
+89,Evaluate Division,Graph Traversal (DFS/BFS),Medium,"Google, Uber",Not solved
+90,Sort Colors,Two Pointers,Medium,"Google, Amazon",Not solved
+91,Subsets,Backtracking,Medium,"Meta, Google",Not solved
+92,Letter Combinations of a Phone Number,Backtracking,Medium,"Meta, Google, Amazon",Not solved
+93,Find First and Last Position of Element in Sorted Array,Binary Search,Medium,"Meta, Google, Amazon",Not solved
+94,Encode and Decode Strings,String / Design,Medium,"Meta, Google",Not solved
+95,Rotting Oranges,Graph Traversal (BFS),Medium,"Amazon, Google",Not solved
+96,Time Based Key-Value Store,Hash Map / Binary Search,Medium,"Google, Uber",Not solved
+97,Car Fleet,Stack,Medium,Google,Not solved
+98,Design Hit Counter,Design / Queue,Medium,Uber,Not solved
+99,Minimum Knight Moves,Graph Traversal (BFS),Medium,Google,Not solved
+100,Reorganize String,Heap / Greedy,Medium,"Amazon, Google",Not solved

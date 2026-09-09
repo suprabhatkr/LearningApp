@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ascend — Senior Engineer Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-top-row">
+      <a class="brand" href="#overview"><b>A</b><span>ascend</span></a>
+      <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" onclick="toggleSidebar()" aria-label="Toggle sidebar">«</button>
+    </div>
+    <nav>
+      <a class="active" href="#overview" data-target="overview-section">⌂ <span>Overview</span></a>
+      <a href="#dsa" data-target="dsa-section">⌘ <span>DSA Practice</span></a>
+      <a href="#leetcode" data-target="leetcode-section">🗂️ <span>LeetCode 100</span></a>
+      <a href="#systems" data-target="systems-section">▣ <span>System Design</span></a>
+      <a href="#hld-book" data-target="hld-book-section">▤ <span>HLD Book</span></a>
+      <a href="#lld-book" data-target="lld-book-section">◈ <span>LLD Book</span></a>
+      <a href="#tracker" data-target="tracker-section">☑ <span>Progress Tracker</span></a>
+      <a href="#lld" data-target="lld-section">◇ <span>LLD Quizzes</span></a>
+      <a href="#ai" data-target="ai-section">✳ <span>AI Learning</span></a>
+      <a href="#lab" data-target="lab-section">⚡ <span>Backend Lab</span></a>
+    </nav>
+    <div class="streak">
+      ✦ <span><b id="streak-val">7 day streak</b><small>Keep your momentum going</small></span>
+    </div>
+    <button class="profile">
+      <i>SC</i><span id="user-display">Candidate</span><em>•••</em>
+    </button>
+  </aside>
+
+  <main>
+    <header>
+      <button class="menu">☰</button>
+      <div class="crumb">Preparation <b>/</b> <strong id="current-tab-label">Overview</strong></div>
+      <div>
+        <span class="status-indicator-bar" id="auth-status-pill">Auto-Authenticating...</span>
+        <button class="upgrade" onclick="resetProgress()">Reset Progress</button>
+      </div>
+    </header>
+
+    <!-- 1. OVERVIEW VIEW -->
+    <div id="overview-section" class="tab-content">
+      <section class="hero">
+        <div class="intro">
+          <p class="eyebrow">YOUR PREPARATION SPACE</p>
+          <h1>Build the depth to<br><em>lead the room.</em></h1>
+          <p class="copy">A purposeful path to your next SDE2, Senior, or Staff engineering role. Learn advanced concepts, practice trade-offs, and inspect production backend designs.</p>
+          <a class="primary" href="#dsa" onclick="switchTab('dsa-section')">Start DSA Practice <span>→</span></a>
+        </div>
+        <div class="art">
+          <i></i><i></i><i></i>
+          <blockquote>
+            <b>“</b>Senior engineers create clarity where others see complexity.<b>”</b>
+            <small>— YOUR NORTH STAR</small>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <article>
+          <label><i class="coral"></i>Target Companies</label>
+          <strong>Adobe / Tier-1</strong>
+          <small>Senior SDE Curriculum</small>
+        </article>
+        <article>
+          <label><i class="purple"></i>Problems Solved</label>
+          <strong id="count">0<span> / 3</span></strong>
+          <div class="progress"><i id="count-progress-bar" style="width: 0%"></i></div>
+        </article>
+        <article>
+          <label><i class="gold"></i>Readiness Score</label>
+          <strong id="readiness-val">68<span>%</span></strong>
+          <small>On track for your target <b>↑</b></small>
+        </article>
+        <article>
+          <label><i class="green"></i>Milestone Status</label>
+          <strong>Ready</strong>
+          <small>Interactive lab running</small>
+        </article>
+      </section>
+
+      <div class="heading">
+        <div>
+          <p class="eyebrow">PREPARATION ROADMAP</p>
+          <h2>Progress with purpose</h2>
+        </div>
+      </div>
+      
+      <section class="roadmap">
+        <article class="roadmap-card" onclick="switchTab('dsa-section')">
+          <div><small>01 — DSA PRACTICE</small><mark id="card-dsa-status">0 / 3 Complete</mark></div>
+          <h3>Advanced Structures & DP</h3>
+          <p>Master hard questions on Trees, Graphs, and Dynamic Programming with live python evaluation.</p>
+          <footer>Click to open</footer>
+        </article>
+        <article class="roadmap-card" onclick="switchTab('systems-section')">
+          <div><small>02 — SYSTEMS DESIGN</small><mark id="card-sys-status">0 / 3 Complete</mark></div>
+          <h3>System Scale & Architectures</h3>
+          <p>Learn capacity estimation, caching writes, CAP/PACELC trade-offs, and real-world architectures.</p>
+          <footer>Click to open</footer>
+        </article>
+        <article class="roadmap-card" onclick="switchTab('lld-section')">
+          <div><small>03 — LLD & AI</small><mark id="card-lld-status">0 / 2 Quizzes Done</mark></div>
+          <h3>Clean Code & ML Distillation</h3>
+          <p>Take interactive quizzes on SOLID principles, design patterns, and LLM fine-tuning mechanisms.</p>
+          <footer>Click to open</footer>
+        </article>
+      </section>
+    </div>
+
+    <!-- 2. DSA PRACTICE VIEW -->
+    <div id="dsa-section" class="tab-content" style="display: none;">
+      <section class="practice-container">
+        <div class="practice-sidebar">
+          <div class="section-title">
+            <p class="eyebrow">DSA SYLLABUS</p>
+            <h2>High-Level Concepts</h2>
+          </div>
+          <div class="dsa-syllabus-tabs">
+            <button class="syllabus-tab active" onclick="showSyllabus('trees')">Trees</button>
+            <button class="syllabus-tab" onclick="showSyllabus('graphs')">Graphs</button>
+            <button class="syllabus-tab" onclick="showSyllabus('dp')">DP Patterns</button>
+          </div>
+          <div id="syllabus-content" class="syllabus-details-box">
+            <!-- Dynamic concept content -->
+          </div>
+          
+          <div class="section-title" style="margin-top: 30px;">
+            <p class="eyebrow">PRACTICE PROBLEMS</p>
+            <h2>Tough SDE-1/2 Questions</h2>
+          </div>
+          <div class="problem-list" id="problem-list-container">
+            <!-- Dynamic problem list loaded here -->
+          </div>
+        </div>
+
+        <div class="practice-main">
+          <div id="no-problem-selected" class="editor-placeholder">
+            <i>⌘</i>
+            <h3>Select a practice problem to begin</h3>
+            <p>Write, run, and evaluate your Python code against actual test cases executed on the FastAPI backend.</p>
+          </div>
+          <div id="problem-editor-container" style="display: none;">
+            <div class="editor-header">
+              <h2 id="editor-title">Serialize and Deserialize Binary Tree</h2>
+              <span class="diff-badge" id="editor-difficulty">Hard</span>
+            </div>
+            <div id="editor-description" class="editor-desc-box">
+              <!-- Problem description here -->
+            </div>
+            
+            <div class="code-area-container">
+              <div class="code-header">
+                <span>Python 3 Code Editor</span>
+                <button class="run-btn" onclick="submitCode()">Run Tests ⚡</button>
+              </div>
+              <textarea id="code-editor" spellcheck="false"></textarea>
+            </div>
+            
+            <div class="console-box">
+              <div class="console-header">Console Output / Test Results</div>
+              <pre id="console-output">Run your code to see the test output...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 3. SYSTEM DESIGN VIEW -->
+    <div id="systems-section" class="tab-content" style="display: none;">
+      <section class="systems-grid" id="hld-book-layout">
+        <div class="systems-chapters">
+          <div class="section-title">
+            <p class="eyebrow">SYSTEM DESIGN SYLLABUS</p>
+            <h2>Core Infrastructure & Trade-offs</h2>
+          </div>
+          <div class="chapter-list" id="sys-chapter-list">
+            <!-- Dynamic chapters -->
+          </div>
+        </div>
+        <div class="systems-viewer">
+          <div id="no-chapter-selected" class="editor-placeholder">
+            <i>▣</i>
+            <h3>Select a chapter to read</h3>
+            <p>Examine capacities, cache strategies, and CAP theorems in depth. Mark chapters as complete to boost your SDE readiness score.</p>
+          </div>
+          <div id="chapter-reader" style="display: none;">
+            <div class="reader-header">
+              <h2 id="reader-title">Scale & Back-of-the-Envelope Estimation</h2>
+              <button class="complete-chapter-btn" id="mark-chapter-complete-btn" onclick="markChapterComplete()">Mark as Completed ✓</button>
+            </div>
+            <div id="reader-content" class="reader-body markdown-body">
+              <!-- Chapter text goes here -->
+            </div>
+            <div class="case-study-box">
+              <h4>Interactive Case Study</h4>
+              <p id="reader-case-study"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="systems-examples-section">
+        <div class="section-title">
+          <p class="eyebrow">REAL-WORLD DESIGNS</p>
+          <h2>Interactive Architectural Blueprints</h2>
+        </div>
+        <div class="examples-tab-bar" id="examples-tab-bar">
+          <!-- Dynamic architectural examples -->
+        </div>
+        <div class="example-content-card" id="example-details-box">
+          <!-- Display selected architectural diagram & writeup -->
+        </div>
+      </section>
+    </div>
+
+    <!-- 4. HLD BOOK VIEW -->
+    <div id="hld-book-section" class="tab-content" style="display: none;">
+      <section class="systems-grid">
+        <div class="systems-chapters">
+          <div class="section-title">
+            <p class="eyebrow">HLD BOOK</p>
+            <h2>System Design Chapters</h2>
+          </div>
+          <div class="chapter-list" id="hld-chapter-list"></div>
+        </div>
+        <div class="systems-viewer">
+          <div id="no-hld-selected" class="editor-placeholder">
+            <i>▤</i>
+            <h3>Select a HLD chapter to read</h3>
+            <p>Each chapter opens the PDF at the chapter page and includes a placeholder for end-of-chapter questions.</p>
+          </div>
+          <div id="hld-chapter-reader" style="display: none;" class="book-reader-card">
+            <div class="reader-header">
+              <h2 id="hld-reader-title"></h2>
+              <div class="reader-actions">
+                <button class="expand-reader-btn" id="hld-reader-expand-btn" onclick="toggleBookReaderMode('hld')">Full Page ⛶</button>
+              </div>
+            </div>
+            <p id="hld-reader-goal" class="book-chapter-goal"></p>
+            <iframe id="hld-pdf-viewer" class="book-pdf-frame" title="HLD PDF reader"></iframe>
+            <div class="book-questions-box">
+              <h4>End-of-Chapter Questions</h4>
+              <ul id="hld-questions-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 5. LLD BOOK VIEW -->
+    <div id="lld-book-section" class="tab-content" style="display: none;">
+      <section class="systems-grid" id="lld-book-layout">
+        <div class="systems-chapters">
+          <div class="section-title">
+            <p class="eyebrow">LLD BOOK</p>
+            <h2>Design Pattern Chapters</h2>
+          </div>
+          <div class="chapter-list" id="lld-book-chapter-list"></div>
+          <div class="book-progress-card">
+            <h4>Task Tracker</h4>
+            <p id="lld-book-progress-label">0 / 0 chapters completed</p>
+          </div>
+        </div>
+        <div class="systems-viewer">
+          <div id="no-lld-book-selected" class="editor-placeholder">
+            <i>◈</i>
+            <h3>Select an LLD chapter to read</h3>
+            <p>Track chapter completion as tasks and keep your reading progress visible chapter-by-chapter.</p>
+          </div>
+          <div id="lld-book-reader" style="display: none;" class="book-reader-card">
+            <div class="reader-header">
+              <h2 id="lld-book-reader-title"></h2>
+              <div class="reader-actions">
+                <button class="expand-reader-btn" id="lld-reader-expand-btn" onclick="toggleBookReaderMode('lld')">Full Page ⛶</button>
+                <button class="complete-chapter-btn" id="mark-lld-book-complete-btn" onclick="markLldBookChapterComplete()">Mark Task Completed ✓</button>
+              </div>
+            </div>
+            <p id="lld-book-reader-goal" class="book-chapter-goal"></p>
+            <iframe id="lld-pdf-viewer" class="book-pdf-frame" title="LLD PDF reader"></iframe>
+            <div class="book-questions-box">
+              <h4>End-of-Chapter Questions</h4>
+              <ul id="lld-book-questions-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 6. PROGRESS TRACKER VIEW -->
+    <div id="tracker-section" class="tab-content" style="display: none;">
+      <section class="tracker-layout">
+        <div class="tracker-create-card">
+          <div class="section-title">
+            <p class="eyebrow">TRACK YOUR EXECUTION</p>
+            <h2>Coding & Study Targets</h2>
+          </div>
+          <div class="tracker-form-grid">
+            <input id="tracker-title-input" type="text" placeholder="Add target or todo (e.g., Solve 2 graph problems)">
+            <select id="tracker-category-select">
+              <option value="coding">Coding</option>
+              <option value="study">Study</option>
+              <option value="system-design">System Design</option>
+              <option value="lld">LLD</option>
+              <option value="ai">AI</option>
+              <option value="other">Other</option>
+            </select>
+            <input id="tracker-target-input" type="text" placeholder="Target (e.g., Finish by Sunday)">
+            <textarea id="tracker-notes-input" placeholder="Notes (optional)"></textarea>
+            <button class="submit-quiz-btn" onclick="createTrackerItem()">Add to Tracker</button>
+          </div>
+        </div>
+        <div class="tracker-list-card">
+          <div class="tracker-list-header">
+            <h3>Your Tracker Board</h3>
+            <div class="tracker-stats-row">
+              <span id="tracker-open-count">0 open</span>
+              <span id="tracker-done-count">0 done</span>
+            </div>
+          </div>
+          <div id="tracker-items-list" class="tracker-items-list">
+            <p class="placeholder-text">Add your first target to start tracking progress.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 7. LLD QUIZZES VIEW -->
+    <div id="lld-section" class="tab-content" style="display: none;">
+      <section class="quizzes-grid">
+        <div class="quizzes-list-pane">
+          <div class="section-title">
+            <p class="eyebrow">LOW-LEVEL DESIGN</p>
+            <h2>SOLID & OOD Principles</h2>
+          </div>
+          <div class="quiz-theory-box">
+            <h3>SOLID Principles Cheat Sheet</h3>
+            <p>Every senior candidate must implement designs conforming to SOLID. Select a quiz on the right to test your design instincts.</p>
+            <div class="theory-nav-btns">
+              <button onclick="showLldTheory('solid')">Read SOLID Theory</button>
+              <button onclick="showLldTheory('patterns')">Read Design Patterns</button>
+            </div>
+          </div>
+          <div id="lld-theory-display" class="lld-theory-display-box">
+            <!-- Theory content -->
+            <p class="placeholder-text">Click a button above to read low level design chapters.</p>
+          </div>
+        </div>
+        <div class="quizzes-engine-pane">
+          <div class="section-title">
+            <p class="eyebrow">ASSESSMENT ENGINE</p>
+            <h2>Interactive Mock Quizzes</h2>
+          </div>
+          <div class="quiz-selector-row">
+            <button class="quiz-select-btn" onclick="startQuiz('solid_quiz')">SOLID Principles Quiz</button>
+            <button class="quiz-select-btn" onclick="startQuiz('patterns_quiz')">Design Patterns Quiz</button>
+          </div>
+          <div id="quiz-runner-box" class="quiz-runner-box" style="display: none;">
+            <h3 id="quiz-run-title">SOLID Principles Assessment</h3>
+            <div id="quiz-questions-container">
+              <!-- Dynamic questions -->
+            </div>
+            <button class="submit-quiz-btn" onclick="submitQuizAnswers()">Submit Quiz Answers</button>
+            <div id="quiz-results-summary" class="quiz-result-summary" style="display: none;">
+              <!-- Score summaries -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 8. AI LEARNING VIEW -->
+    <div id="ai-section" class="tab-content" style="display: none;">
+      <section class="ai-container">
+        <div class="ai-nav">
+          <div class="section-title">
+            <p class="eyebrow">AI PREPARATION</p>
+            <h2>From Foundations to Distillation</h2>
+          </div>
+          <div class="ai-chapters-menu" id="ai-chapters-menu">
+            <!-- Loaded dynamically -->
+          </div>
+          <div class="ai-reference-panel">
+            <h4>Reference PDFs</h4>
+            <div id="ai-reference-list" class="ai-reference-list">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="ai-content-panel">
+          <div id="no-ai-selected" class="editor-placeholder">
+            <i>✳</i>
+            <h3>Select an AI topic from the left</h3>
+            <p>Study neural architectures, fine-tuning configurations, knowledge distillation formula details, and evaluation harness benchmarks.</p>
+          </div>
+          <div id="ai-content-box" class="ai-content-box" style="display: none;">
+            <h2 id="ai-chapter-title">Transformer Architectures</h2>
+            <div id="ai-chapter-body" class="ai-markdown-body markdown-body">
+              <!-- Dynamic content -->
+            </div>
+            
+            <div class="ai-checkpoint-section">
+              <h4>Topic Knowledge Checkpoint</h4>
+              <button class="ai-checkpoint-btn" onclick="startAiQuiz()">Open AI Quiz & Benchmarking Assessment</button>
+            </div>
+          </div>
+
+          <!-- AI Quiz Runner Inside AI Panel -->
+          <div id="ai-quiz-runner" class="quiz-runner-box" style="display: none;">
+            <div class="ai-quiz-header">
+              <h3>AI & LLM Benchmarking Assessment</h3>
+              <button class="close-ai-quiz-btn" onclick="closeAiQuiz()">← Back to Reading</button>
+            </div>
+            <div id="ai-quiz-questions"></div>
+            <button class="submit-quiz-btn" onclick="submitAiQuizAnswers()">Submit AI Assessment</button>
+            <div id="ai-quiz-results" class="quiz-result-summary" style="display: none;"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 9. BACKEND LAB VIEW -->
+    <div id="lab-section" class="tab-content" style="display: none;">
+      <section class="lab-dashboard">
+        <div class="section-title">
+          <p class="eyebrow">LIVE BACKEND PLAYGROUND</p>
+          <h2>Inspect System Design Integrations</h2>
+        </div>
+        
+        <div class="db-cards">
+          <div class="db-status-card">
+            <h4>PostgreSQL Database</h4>
+            <div class="status-pill offline" id="status-postgres">Offline</div>
+            <p id="desc-postgres">Checking connection...</p>
+            <button class="run-lab-btn" onclick="runLabTest('postgres')">Trigger Async Query</button>
+          </div>
+          <div class="db-status-card">
+            <h4>Redis Cache Store</h4>
+            <div class="status-pill offline" id="status-redis">Offline</div>
+            <p id="desc-redis">Checking connection...</p>
+            <button class="run-lab-btn" onclick="runLabTest('redis')">Test Latency (GET/SET)</button>
+          </div>
+          <div class="db-status-card">
+            <h4>Elasticsearch Cluster</h4>
+            <div class="status-pill offline" id="status-elastic">Offline</div>
+            <p id="desc-elastic">Checking connection...</p>
+            <button class="run-lab-btn" onclick="runLabTest('elastic')">Index & Fuzzy Search</button>
+          </div>
+        </div>
+
+        <div class="lab-main-grid">
+          <div class="lab-console">
+            <h4>Lab Execution Metrics</h4>
+            <pre id="lab-console-output">Select a database helper to run benchmark tests...</pre>
+          </div>
+          <div class="lab-code-viewer">
+            <h4>Production-Grade FastAPI Integration Code</h4>
+            <pre id="lab-code-display" class="python-syntax"># Integration code will display here based on test selected</pre>
+          </div>
+        </div>
+
+        <section class="backend-learning-section">
+          <div class="section-title">
+            <p class="eyebrow">BACKEND LEARNING</p>
+            <h2>Master Guide Chapters</h2>
+          </div>
+          <div class="systems-grid" id="backend-learning-layout">
+            <div class="systems-chapters">
+              <div class="chapter-list" id="backend-guide-list"></div>
+            </div>
+            <div class="systems-viewer">
+              <div id="no-backend-guide-selected" class="editor-placeholder">
+                <i>⚙</i>
+                <h3>Select a backend chapter to read</h3>
+                <p>Read caching, database architecture, API security, observability, and async Python guides chapter-wise.</p>
+              </div>
+              <div id="backend-guide-reader" style="display: none;" class="book-reader-card">
+                <div class="reader-header">
+                  <h2 id="backend-guide-title"></h2>
+                  <div class="reader-actions">
+                    <button class="expand-reader-btn" id="backend-guide-expand-btn" onclick="toggleBookReaderMode('backend')">Full Page ⛶</button>
+                  </div>
+                </div>
+                <p id="backend-guide-summary" class="book-chapter-goal"></p>
+                <iframe id="backend-guide-pdf-viewer" class="book-pdf-frame" title="Backend guide PDF reader"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="backend-workspace-section">
+          <div class="section-title">
+            <p class="eyebrow">LEARN BY DOING LAB</p>
+            <h2>100-Topic Backend Syllabus Playground</h2>
+          </div>
+          <div class="backend-progress-strip">
+            <div><b id="backend-topic-position">Topic 0 of 100</b><small id="backend-topic-domain">Select a topic from the syllabus</small></div>
+            <div><b id="backend-complete-count">0 Completed</b><small>Track your execution progress</small></div>
+            <button class="complete-chapter-btn" id="backend-mark-complete-btn" onclick="markBackendTopicComplete()" disabled>Mark Topic Completed ✓</button>
+          </div>
+
+          <div class="backend-learn-layout">
+            <aside class="backend-syllabus-pane">
+              <h4>Topic Directory</h4>
+              <div id="backend-domain-list" class="backend-domain-list"></div>
+            </aside>
+
+            <section class="backend-editor-pane">
+              <div id="backend-topic-empty" class="editor-placeholder">
+                <i>⚙</i>
+                <h3>Select a topic to begin</h3>
+                <p>Read concept notes, tune execution parameters, run the sandbox, and mark the topic complete.</p>
+              </div>
+
+              <div id="backend-topic-workspace" style="display:none;">
+                <div class="backend-topic-header">
+                  <h3 id="backend-topic-title"></h3>
+                </div>
+                <div id="backend-topic-learn-content" class="reader-body"></div>
+
+                <div class="backend-editor-controls">
+                  <label>TTL (sec)<input id="backend-param-ttl" type="number" min="1" max="300" value="60"></label>
+                  <label>Concurrency<input id="backend-param-concurrency" type="number" min="1" max="500" value="25"></label>
+                  <label>Request Count<input id="backend-param-requests" type="number" min="1" max="5000" value="200"></label>
+                </div>
+
+                <div class="code-area-container">
+                  <div class="code-header">
+                    <span>Interactive Practice Snippet</span>
+                    <button class="run-btn" onclick="executeBackendTopic()">Run Simulation ⚡</button>
+                  </div>
+                  <textarea id="backend-code-editor" spellcheck="false"></textarea>
+                </div>
+              </div>
+            </section>
+
+            <section class="backend-output-pane">
+              <div class="examples-tab-bar backend-output-tabs">
+                <button class="example-tab-btn active" id="backend-tab-terminal" onclick="switchBackendOutputTab('terminal')">Terminal Logs</button>
+                <button class="example-tab-btn" id="backend-tab-state" onclick="switchBackendOutputTab('state')">State View</button>
+                <button class="example-tab-btn" id="backend-tab-metrics" onclick="switchBackendOutputTab('metrics')">Latency Metrics</button>
+              </div>
+
+              <div id="backend-output-terminal" class="lab-console backend-output-card">
+                <h4>Execution Stream</h4>
+                <pre id="backend-output-terminal-pre">Run a topic to inspect terminal logs.</pre>
+              </div>
+              <div id="backend-output-state" class="backend-output-card backend-state-card" style="display:none;">
+                <h4>Runtime State</h4>
+                <div id="backend-state-table-wrap"></div>
+              </div>
+              <div id="backend-output-metrics" class="backend-output-card backend-metrics-card" style="display:none;">
+                <h4>Performance Benchmarks</h4>
+                <div id="backend-metrics-wrap"></div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- LeetCode 100 Tab View -->
+    <div id="leetcode-section" class="tab-content" style="display: none;">
+      <section class="leetcode-dashboard">
+        <div class="leetcode-header-block">
+          <div class="section-title" style="margin: 0;">
+            <p class="eyebrow">TARGET TOP 100</p>
+            <h2>LeetCode High-Frequency Syllabus</h2>
+            <p class="copy" style="margin: 8px 0 0 0; max-width: 600px;">Track and filter 100 essential patterns. Click problem names to solve on LeetCode; toggle status to update your profile readiness metric.</p>
+          </div>
+          <div class="leetcode-stats-card">
+            <label>Progress Tracker</label>
+            <div class="stats-number"><span id="leetcode-solved-stat">0</span><b> / 100</b></div>
+            <div class="progress"><i id="leetcode-progress-bar" style="width: 0%"></i></div>
+          </div>
+        </div>
+
+        <div class="leetcode-filter-bar">
+          <div class="search-input-wrapper">
+            <input type="text" id="leetcode-search-input" placeholder="Search by name, pattern, or company..." oninput="filterLeetcodeQuestions()">
+          </div>
+          <div class="filter-dropdowns">
+            <select id="leetcode-difficulty-select" onchange="filterLeetcodeQuestions()">
+              <option value="all">All Difficulties</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+            <select id="leetcode-solved-select" onchange="filterLeetcodeQuestions()">
+              <option value="all">All Statuses</option>
+              <option value="solved">Solved</option>
+              <option value="unsolved">Unsolved</option>
+            </select>
+            <select id="leetcode-pattern-select" onchange="filterLeetcodeQuestions()">
+              <option value="all">All Patterns</option>
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+        </div>
+
+        <div class="leetcode-list-box">
+          <table class="leetcode-table">
+            <thead>
+              <tr>
+                <th width="60">#</th>
+                <th>Problem Name</th>
+                <th>Core Pattern</th>
+                <th>Difficulty</th>
+                <th>Target Companies</th>
+                <th width="120" style="text-align: center;">Status</th>
+              </tr>
+            </thead>
+            <tbody id="leetcode-table-body">
+              <!-- Loaded dynamically via script.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <footer class="page-foot">
+      © 2026 Ascend <span>FastAPI Sandbox SDE Learning Platform</span>
+    </footer>
+  </main>
+
+  <div class="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
