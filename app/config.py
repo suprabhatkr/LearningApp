@@ -5,8 +5,8 @@ from pydantic import Field
 class Settings(BaseSettings):
     APP_NAME: str = "Ascend - Senior SDE Learn Hub"
     DEBUG: bool = True
-    PORT: int = 8000
-    HOST: str = "127.0.0.1"
+    PORT: int = 8090
+    HOST: str = "0.0.0.0"
 
     # JWT Authentication
     SECRET_KEY: str = "SUPER_SECRET_KEY_FOR_JWT_SIGNING_SENIOR_SDE_PREP_12345!"

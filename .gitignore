@@ -1,8 +1,33 @@
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+
+# Operating system artifacts
 .DS_Store
 Thumbs.db
+
+# IDE and editors
 .idea/
+.vscode/
+*.swp
+*.swo
+
+# Databases & runtime locks
 *.sqlite3
+*.db-shm
+*.db-wal
+*.db-journal
+
+# Local virtual environments
+.venv/
+venv/
+ENV/
+env/
+.requirements.sha256
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
